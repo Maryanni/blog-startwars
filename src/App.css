@@ -36,3 +36,57 @@
     transform: rotate(360deg);
   }
 }
+
+
+.navbarPrincipal{
+  height: 150px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: black;
+  background-image: url('/public/starts.jpg');
+  position: fixed;
+}
+
+.btnImgNavbar{
+ border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  margin-left: 1cm;
+  overflow: hidden;
+  object-fit: cover;
+}
+
+.iconNavbar{
+  margin: 4px;
+}
+
+.btnFavorites{
+  margin-right: 1cm;
+}
+
+.containerPrincipalHome{
+  padding-top: 200px;  
+}
+
+.imgMenu{
+  height: 5cm;
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+body{
+  background-image: url('/public/fondo2.jpg');
+}
+
+.linkFooter{
+  color: rgb(161, 255, 127);
+  font-family: 'Arial', sans-serif;
+}
+
+.styleText{
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+}

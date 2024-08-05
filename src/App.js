@@ -1,25 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import injectContext from './store/context';
+import Home from "./views/Home";
+import Navbar from "./components/Navbar";
+import Film from "./components/Film";
+import Character from "./components/Character";
+import Specie from "./components/Specie";
+import Planet from "./components/Planet";
+import Starship from "./components/Starship";
+import Vehicle from "./components/Vehicle";
+import FilmDetail from "./views/FilmDetail";
+import CharacterDetail from "./views/CharacterDetail";
 
-function App() {
+
+function App(){
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Home />}/>
+        <Route path="/films" element={<Film />}/>
+        <Route path="/characters" element={<Character />}/>
+        <Route path="/species" element={<Specie />}/>
+        <Route path="/planets" element={<Planet />}/>
+        <Route path="/starships" element={<Starship />}/>
+        <Route path="/vehicles" element={<Vehicle />}/>
+        <Route path="/films/:uid" element={<FilmDetail />}/>
+        <Route path="/characters/:uid" element={<CharacterDetail />}/>
+
+
+
+      </Routes>
+    </BrowserRouter>
   );
 }
 
-export default App;
+export default injectContext(App);

@@ -2,12 +2,12 @@ import { useContext, useEffect } from "react";
 import { Context } from "../store/context";
 import { useParams } from "react-router-dom";
 
-function CharacterDetail() {
+function VehicleDetail() {
   const state = useContext(Context);
   const { uid } = useParams();
 
   useEffect(() => {
-    state.actions.getPeopleId(uid);
+    state.actions.getVehicleId(uid);
   }, [uid]);
 
   return (
@@ -16,7 +16,7 @@ function CharacterDetail() {
         <div className="row g-0 align-items-center">
           <div className="col-md-4 d-flex justify-content-center">
             <img
-              src="../people1.jpeg"
+              src="../vehicle1.png"
               className="img-fluid imgDetail"
               alt="..."
             />
@@ -28,19 +28,34 @@ function CharacterDetail() {
               </h5>
               <ul className="list-group list-group-flush">
                 <li className="list-group-item">
-                  Gender: {state.store.vehiclepSelect?.properties?.gender}
+                Model: {state.store.vehiclepSelect?.properties?.model}
                 </li>
                 <li className="list-group-item">
-                  Mass: {state.store.vehiclepSelect?.properties?.mass}
+                Vehicle class: {state.store.vehiclepSelect?.properties?.vehicle_class}
                 </li>
                 <li className="list-group-item">
-                  Hair color: {state.store.vehiclepSelect?.properties?.hair_color}
+                Manufacturer: {state.store.vehiclepSelect?.properties?.manufacturer}
                 </li>
                 <li className="list-group-item">
-                  Skin_color: {state.store.vehiclepSelect?.properties?.skin_color}
+                Cost in credits: {state.store.vehiclepSelect?.properties?.cost_in_credits}
                 </li>
                 <li className="list-group-item">
-                  Eye_color: {state.store.vehiclepSelect?.properties?.eye_color}
+                length: {state.store.vehiclepSelect?.properties?.length}
+                </li>
+                <li className="list-group-item">
+                Crew: {state.store.vehiclepSelect?.properties?.crew}
+                </li>
+                <li className="list-group-item">
+                Passengers: {state.store.vehiclepSelect?.properties?.passengers}
+                </li>
+                <li className="list-group-item">
+                Max atmosphering speed: {state.store.vehiclepSelect?.properties?.max_atmosphering_speed}
+                </li>
+                <li className="list-group-item">
+                Cargo capacity: {state.store.vehiclepSelect?.properties?.cargo_capacity}
+                </li>
+                <li className="list-group-item">
+                consumables: {state.store.vehiclepSelect?.properties?.consumables}
                 </li>
                 <li className="list-group-item">
                   <h4>{state.store.vehiclepSelect?.description}</h4>
@@ -54,4 +69,4 @@ function CharacterDetail() {
   );
 }
 
-export default CharacterDetail;
+export default VehicleDetail;

@@ -16,10 +16,10 @@ function Character() {
         {state.store.people.length > 0
           ? state.store.people.map((item, index) => {
               return (
-                <div className="col">
+                <div className="col" key={index}>
                   <div
                     className="card d-flex justify-content-between"
-                    key={index}
+
                   >
                     <img
                       src="../yoda.png"
@@ -32,7 +32,7 @@ function Character() {
                         <Link
                           className="btn btn btn-outline-info"
                           aria-current="page"
-                          to={`/films/${item.uid}`}
+                          to={`/characters/${item.uid}`}
                         >
                           <small>
                             <b>Learn more!</b>
@@ -40,8 +40,8 @@ function Character() {
                         </Link>
                       </div>
                       <div>
-                        <button type="button" class="btn btn-outline-warning">
-                          <i class="fa-regular fa-heart"></i>
+                        <button type="button" className="btn btn-outline-warning">
+                          <i className="fa-regular fa-heart"></i>
                         </button>
                       </div>
                     </div>

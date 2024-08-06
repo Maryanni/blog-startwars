@@ -10,7 +10,10 @@ import Starship from "./components/Starship";
 import Vehicle from "./components/Vehicle";
 import FilmDetail from "./views/FilmDetail";
 import CharacterDetail from "./views/CharacterDetail";
-
+import PlanetDetail from "./views/PlanetDetail";
+import SpecieDetail from "./views/SpecieDetail";
+import StarshipDetail from "./views/StarshipDetail";
+import VehicleDetail from "./views/VehicleDetail";
 
 function App(){
   return (
@@ -26,7 +29,10 @@ function App(){
         <Route path="/vehicles" element={<Vehicle />}/>
         <Route path="/films/:uid" element={<FilmDetail />}/>
         <Route path="/characters/:uid" element={<CharacterDetail />}/>
-
+        <Route path="/planets/:uid" element={<PlanetDetail />}/>
+        <Route path="/species/:uid" element={<SpecieDetail />}/>
+        <Route path="/starships/:uid" element={<StarshipDetail />}/>
+        <Route path="/vehicles/:uid" element={<VehicleDetail />}/>
 
 
       </Routes>

@@ -2,12 +2,12 @@ import { useContext, useEffect } from "react";
 import { Context } from "../store/context";
 import { useParams } from "react-router-dom";
 
-function FilmDetail() {
+function SpecieDetail() {
   const state = useContext(Context);
   const { uid } = useParams();
 
   useEffect(() => {
-    state.actions.getFilmId(uid);
+    state.actions.getSpecieId(uid);
   }, [uid]);
 
   return (
@@ -16,7 +16,7 @@ function FilmDetail() {
         <div className="row g-0 align-items-center">
           <div className="col-md-4 d-flex justify-content-center">
             <img
-              src="../people1.jpeg"
+              src="../specie1.jpg"
               className="img-fluid imgDetail"
               alt="..."
             />
@@ -24,23 +24,35 @@ function FilmDetail() {
           <div className="col-md-8">
             <div className="card-body">
               <h5 className="card-title">
-                {state.store?.title}
+                {state.store.specieSelect?.properties?.name}
               </h5>
               <ul className="list-group list-group-flush">
                 <li className="list-group-item">
-                Producer: {state.store?.producer}
+                Classification: {state.store.specieSelect?.properties?.classification}
                 </li>
                 <li className="list-group-item">
-                Director: {state.store?.director}
+                Designation: {state.store.specieSelect?.properties?.designation}
                 </li>
                 <li className="list-group-item">
-                Episode id: {state.store?.episode_id}
+                Average height: {state.store.specieSelect?.properties?.average_height}
                 </li>
                 <li className="list-group-item">
-                Opening crawl: {state.store?.opening_crawl}
+                Average lifespan: {state.store.specieSelect?.properties?.average_lifespan}
                 </li>
                 <li className="list-group-item">
-                  <h4>{state.store?.description}</h4>
+                Hair colors: {state.store.specieSelect?.properties?.hair_colorsr}
+                </li>
+                <li className="list-group-item">
+                Skin colors: {state.store.specieSelect?.properties?.skin_colors}
+                </li>
+                <li className="list-group-item">
+                Eye colors: {state.store.specieSelect?.properties?.eye_colors}
+                </li>
+                <li className="list-group-item">
+                Language: {state.store.specieSelect?.properties?.language}
+                </li>
+                <li className="list-group-item">
+                  <h4>{state.store.specieSelect?.description}</h4>
                 </li>
               </ul>
             </div>
@@ -51,4 +63,4 @@ function FilmDetail() {
   );
 }
 
-export default FilmDetail;
+export default SpecieDetail;

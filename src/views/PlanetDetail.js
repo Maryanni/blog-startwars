@@ -2,12 +2,12 @@ import { useContext, useEffect } from "react";
 import { Context } from "../store/context";
 import { useParams } from "react-router-dom";
 
-function FilmDetail() {
+function PlanetDetail() {
   const state = useContext(Context);
   const { uid } = useParams();
 
   useEffect(() => {
-    state.actions.getFilmId(uid);
+    state.actions.getPlanetId(uid);
   }, [uid]);
 
   return (
@@ -16,7 +16,7 @@ function FilmDetail() {
         <div className="row g-0 align-items-center">
           <div className="col-md-4 d-flex justify-content-center">
             <img
-              src="../people1.jpeg"
+              src="../planet1.jpg"
               className="img-fluid imgDetail"
               alt="..."
             />
@@ -24,23 +24,35 @@ function FilmDetail() {
           <div className="col-md-8">
             <div className="card-body">
               <h5 className="card-title">
-                {state.store?.title}
+                {state.store.planetSelect?.properties?.name}
               </h5>
               <ul className="list-group list-group-flush">
                 <li className="list-group-item">
-                Producer: {state.store?.producer}
+                Diameter: {state.store.planetSelect?.properties?.diameter}
                 </li>
                 <li className="list-group-item">
-                Director: {state.store?.director}
+                Rotation period: {state.store.planetSelect?.properties?.rotation_period}
                 </li>
                 <li className="list-group-item">
-                Episode id: {state.store?.episode_id}
+                Orbital period: {state.store.planetSelect?.properties?.orbital_period}
                 </li>
                 <li className="list-group-item">
-                Opening crawl: {state.store?.opening_crawl}
+                Gravity: {state.store.planetSelect?.properties?.gravity}
                 </li>
                 <li className="list-group-item">
-                  <h4>{state.store?.description}</h4>
+                Population: {state.store.planetSelect?.properties?.population}
+                </li>
+                <li className="list-group-item">
+                Climate: {state.store.planetSelect?.properties?.climate}
+                </li>
+                <li className="list-group-item">
+                Terrain: {state.store.planetSelect?.properties?.terrain}
+                </li>
+                <li className="list-group-item">
+                Surface water: {state.store.planetSelect?.properties?.surface_water}
+                </li>
+                <li className="list-group-item">
+                  <h4>{state.store.planetSelect?.description}</h4>
                 </li>
               </ul>
             </div>
@@ -51,4 +63,4 @@ function FilmDetail() {
   );
 }
 
-export default FilmDetail;
+export default PlanetDetail;

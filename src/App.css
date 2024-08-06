@@ -68,6 +68,7 @@
 
 .containerPrincipalHome{
   padding-top: 200px;  
+  
 }
 
 .imgMenu{
@@ -79,6 +80,9 @@
 
 body{
   background-image: url('/public/fondo2.jpg');
+  background-repeat: no-repeat; 
+  background-size: cover;
+  background-position: center;
 }
 
 .linkFooter{
@@ -87,6 +91,24 @@ body{
 }
 
 .styleText{
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+}
+
+.imgDetail{
+  height: 200px;
+  width: 200px;
+  border-radius: 50%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  object-fit: cover;
+
+}
+
+.circulo{
+  width: 100%;
+  padding: 6cm;
   font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 
 }

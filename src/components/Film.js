@@ -37,8 +37,8 @@ function Films() {
                         </Link>
                       </div>
                       <div>
-                        <button type="button" class="btn btn-outline-warning">
-                          <i class="fa-regular fa-heart"></i>
+                        <button type="button" className="btn btn-outline-warning">
+                          <i className="fa-regular fa-heart"></i>
                         </button>
                       </div>
                     </div>

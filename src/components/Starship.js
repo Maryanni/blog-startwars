@@ -1,5 +1,6 @@
 import { useContext, useEffect } from "react";
 import { Context } from "../store/context";
+import { Link } from "react-router-dom";
 
 function Starship() {
   const state = useContext(Context);
@@ -24,12 +25,16 @@ function Starship() {
                     />
                     <div className="card-body styleText">{item.name}</div>
                     <div className="card-footer d-flex justify-content-between">
-                      <div>
-                        <button type="button" class="btn btn-outline-info">
+                    <div>
+                        <Link
+                          className="btn btn btn-outline-info"
+                          aria-current="page"
+                          to={`/starships/${item.uid}`}
+                        >
                           <small>
                             <b>Learn more!</b>
                           </small>
-                        </button>
+                        </Link>
                       </div>
                       <div>
                         <button type="button" class="btn btn-outline-warning">

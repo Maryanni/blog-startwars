@@ -18,6 +18,7 @@ const getState = ({ getActions, getStore, setStore }) => {
       episode_id: "",
       director: "",
       opening_crawl: "",
+      favorites: [],
     },
     actions: {
       getApi: (attributes) => {
@@ -121,6 +122,11 @@ const getState = ({ getActions, getStore, setStore }) => {
        
           }
         });
+      },
+      addFavorites: (uid) => {
+        const store = getStore();
+        const selectedFilm = store.films.find(film => film.uid === uid);
+        setStore({ favorites: [...store.favorites, selectedFilm] });
       },
     },
   };

@@ -1,6 +1,8 @@
 import { useContext, useEffect } from "react";
 import { Context } from "../store/context";
 import { Link } from "react-router-dom";
+import "../App.css";
+
 
 function Films() {
   const state = useContext(Context);
@@ -30,14 +32,22 @@ function Films() {
                     </div>
                     <div className="card-footer d-flex justify-content-between">
                       <div>
-                        <Link className="btn btn btn-outline-info" aria-current="page" to={`/films/${item.uid}`}>
-                        <small>
+                        <Link
+                          className="btn btn btn-outline-info"
+                          aria-current="page"
+                          to={`/films/${item.uid}`}
+                        >
+                          <small>
                             <b>Learn more!</b>
                           </small>
                         </Link>
                       </div>
                       <div>
-                        <button type="button" className="btn btn-outline-warning">
+                        <button
+                          type="button"
+                          className={`btn btn-outline-warning ${state.store.favorites.some(is => is.uid == item.uid) ? 'isFavorite' : ''}`}
+                          onClick={() => state.actions.addFavorites(item.uid)}
+                        >
                           <i className="fa-regular fa-heart"></i>
                         </button>
                       </div>

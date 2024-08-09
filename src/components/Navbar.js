@@ -1,7 +1,11 @@
 import { Link } from "react-router-dom";
 import "../App.css";
+import { useContext } from "react";
+import { Context } from "../store/context";
 
 function Navbar() {
+  const state = useContext(Context);
+
   return (
     <nav className="navbar fixed-top navbarPrincipal">
       <div className="d-flex justify-content-center">
@@ -28,17 +32,26 @@ function Navbar() {
             Favorites
             <span className="badge text-bg-secondary iconNavbar">4</span>
           </button>
-          <ul className="dropdown-menu">
-            <li>
-              <a className="dropdown-item" href="/#">
-                Dropdown link
-              </a>
-            </li>
-            <li>
-              <a className="dropdown-item" href="/#">
-                Dropdown link
-              </a>
-            </li>
+          <ul className="dropdown-menu dropdown-menu-end">
+            {state.store.favorites.map(
+              (item, index) => (
+                console.log(item.properties.title),
+                (
+                  <li key={index}>
+                    <div className="d-flex justify-content-end">
+                      <Link
+                        className="dropdown-item"
+                        to={`/films/${item.uid}`}
+                      >
+                        <small>{item.properties.title}</small>
+                      </Link>
+                      <i class="btn fa-solid fa-trash"></i>
+                    </div>
+
+                  </li>
+                )
+              )
+            )}
           </ul>
         </div>
       </div>

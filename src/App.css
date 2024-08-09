@@ -110,5 +110,8 @@ body{
   width: 100%;
   padding: 6cm;
   font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
 
+.isFavorite{
+  color: red;
 }

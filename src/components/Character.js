@@ -1,6 +1,7 @@
 import { useContext, useEffect } from "react";
 import { Context } from "../store/context";
 import { Link } from "react-router-dom";
+import "../App.css";
 
 
 function Character() {
@@ -17,10 +18,7 @@ function Character() {
           ? state.store.people.map((item, index) => {
               return (
                 <div className="col" key={index}>
-                  <div
-                    className="card d-flex justify-content-between"
-
-                  >
+                  <div className="card d-flex justify-content-between">
                     <img
                       src="../yoda.png"
                       className="card-img-top imgMenu"
@@ -32,7 +30,7 @@ function Character() {
                         <Link
                           className="btn btn btn-outline-info"
                           aria-current="page"
-                          to={`/characters/${item.uid}`}
+                          to={`/people/${item.uid}`}
                         >
                           <small>
                             <b>Learn more!</b>
@@ -40,7 +38,11 @@ function Character() {
                         </Link>
                       </div>
                       <div>
-                        <button type="button" className="btn btn-outline-warning">
+                        <button
+                          type="button"
+                          className={`btn btn-outline-warning ${state.store.favorites.some(is => is.uid == item.uid && is.type == 'people') ? 'isFavorite' : ''}`}
+                          onClick={() => state.actions.addFavorites(item.uid, 'people')}
+                        >
                           <i className="fa-regular fa-heart"></i>
                         </button>
                       </div>

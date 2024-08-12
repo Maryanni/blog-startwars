@@ -35,20 +35,24 @@ function Navbar() {
           <ul className="dropdown-menu dropdown-menu-end">
             {state.store.favorites.map(
               (item, index) => (
-                console.log(item.properties.title),
                 (
+                  console.log(item.type),
+                  console.log("entroooo"),
+                  console.log(item.uid),
                   <li key={index}>
                     <div className="d-flex justify-content-end">
                       <Link
                         className="dropdown-item"
-                        to={`/films/${item.uid}`}
+                    
+                        to={`/${item.type}/${item.uid}`}
                       >
-                        <small>{item.properties.title}</small>
+                        <small>{item.title}</small>
                       </Link>
-                      <i class="btn fa-solid fa-trash"></i>
+                      <i className="btn fa-solid fa-trash"></i>
                     </div>
-
                   </li>
+        
+                  
                 )
               )
             )}

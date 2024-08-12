@@ -16,7 +16,7 @@ function Starship() {
           {state.store.starships.length > 0
             ? state.store.starships.map((item, index) => {
                 return (
-                  <div className="col">
+                  <div className="col" key={index}>
                   <div className="card d-flex justify-content-between" key={index}>
                     <img
                       src="../ship.jpeg"
@@ -37,8 +37,12 @@ function Starship() {
                         </Link>
                       </div>
                       <div>
-                        <button type="button" class="btn btn-outline-warning">
-                          <i class="fa-regular fa-heart"></i>
+                        <button
+                          type="button"
+                          className={`btn btn-outline-warning ${state.store.favorites.some(is => is.uid == item.uid && is.type == 'starships') ? 'isFavorite' : ''}`}
+                          onClick={() => state.actions.addFavorites(item.uid, 'starships')}
+                        >
+                          <i className="fa-regular fa-heart"></i>
                         </button>
                       </div>
                     </div>

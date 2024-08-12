@@ -24,26 +24,26 @@ function CharacterDetail() {
           <div className="col-md-8">
             <div className="card-body">
               <h5 className="card-title">
-                {state.store.vehiclepSelect?.properties?.name}
+                {state.store.peopleSelect?.properties?.name}
               </h5>
               <ul className="list-group list-group-flush">
                 <li className="list-group-item">
-                  Gender: {state.store.vehiclepSelect?.properties?.gender}
+                  Gender: {state.store.peopleSelect?.properties?.gender}
                 </li>
                 <li className="list-group-item">
-                  Mass: {state.store.vehiclepSelect?.properties?.mass}
+                  Mass: {state.store.peopleSelect?.properties?.mass}
                 </li>
                 <li className="list-group-item">
-                  Hair color: {state.store.vehiclepSelect?.properties?.hair_color}
+                  Hair color: {state.store.peopleSelect?.properties?.hair_color}
                 </li>
                 <li className="list-group-item">
-                  Skin_color: {state.store.vehiclepSelect?.properties?.skin_color}
+                  Skin_color: {state.store.peopleSelect?.properties?.skin_color}
                 </li>
                 <li className="list-group-item">
-                  Eye_color: {state.store.vehiclepSelect?.properties?.eye_color}
+                  Eye_color: {state.store.peopleSelect?.properties?.eye_color}
                 </li>
                 <li className="list-group-item">
-                  <h4>{state.store.vehiclepSelect?.description}</h4>
+                  <h4>{state.store.peopleSelect?.description}</h4>
                 </li>
               </ul>
             </div>

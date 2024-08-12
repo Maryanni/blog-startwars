@@ -17,7 +17,7 @@ function Planet() {
           {state.store.planets.length > 0
             ? state.store.planets.map((item, index) => {
                 return (
-                  <div className="col">
+                  <div className="col" key={index}>
                   <div className="card d-flex justify-content-between" key={index}>
                     <img
                       src="../planet2.jpg"
@@ -38,8 +38,12 @@ function Planet() {
                         </Link>
                       </div>
                       <div>
-                        <button type="button" class="btn btn-outline-warning">
-                          <i class="fa-regular fa-heart"></i>
+                        <button
+                          type="button"
+                          className={`btn btn-outline-warning ${state.store.favorites.some(is => is.uid == item.uid && is.type == 'planets') ? 'isFavorite' : ''}`}
+                          onClick={() => state.actions.addFavorites(item.uid, 'planets')}
+                        >
+                          <i className="fa-regular fa-heart"></i>
                         </button>
                       </div>
                     </div>

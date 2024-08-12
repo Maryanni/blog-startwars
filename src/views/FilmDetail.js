@@ -23,21 +23,19 @@ function FilmDetail() {
           </div>
           <div className="col-md-8">
             <div className="card-body">
-              <h5 className="card-title">
-                {state.store?.title}
-              </h5>
+              <h5 className="card-title">{state.store?.title}</h5>
               <ul className="list-group list-group-flush">
                 <li className="list-group-item">
-                Producer: {state.store?.producer}
+                  Producer: {state.store?.producer}
                 </li>
                 <li className="list-group-item">
-                Director: {state.store?.director}
+                  Director: {state.store?.director}
                 </li>
                 <li className="list-group-item">
-                Episode id: {state.store?.episode_id}
+                  Episode id: {state.store?.episode_id}
                 </li>
                 <li className="list-group-item">
-                Opening crawl: {state.store?.opening_crawl}
+                  Opening crawl: {state.store?.opening_crawl}
                 </li>
                 <li className="list-group-item">
                   <h4>{state.store?.description}</h4>

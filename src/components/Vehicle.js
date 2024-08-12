@@ -16,7 +16,7 @@ function Vehicle() {
           {state.store.vehicles.length > 0
             ? state.store.vehicles.map((item, index) => {
                 return (
-                  <div className="col">
+                  <div className="col" key={index}>
                   <div className="card d-flex justify-content-between" key={index}>
                     <img
                       src="../vehicle.jpg"
@@ -37,8 +37,12 @@ function Vehicle() {
                         </Link>
                       </div>
                       <div>
-                        <button type="button" class="btn btn-outline-warning">
-                          <i class="fa-regular fa-heart"></i>
+                        <button
+                          type="button"
+                          className={`btn btn-outline-warning ${state.store.favorites.some(is => is.uid == item.uid && is.type == 'vehicles') ? 'isFavorite' : ''}`}
+                          onClick={() => state.actions.addFavorites(item.uid, 'vehicles')}
+                        >
+                          <i className="fa-regular fa-heart"></i>
                         </button>
                       </div>
                     </div>

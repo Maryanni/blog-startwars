@@ -22,13 +22,13 @@ function App(){
       <Routes>
         <Route path="/" element={<Home />}/>
         <Route path="/films" element={<Film />}/>
-        <Route path="/characters" element={<Character />}/>
+        <Route path="/people" element={<Character />}/>
         <Route path="/species" element={<Specie />}/>
         <Route path="/planets" element={<Planet />}/>
         <Route path="/starships" element={<Starship />}/>
         <Route path="/vehicles" element={<Vehicle />}/>
         <Route path="/films/:uid" element={<FilmDetail />}/>
-        <Route path="/characters/:uid" element={<CharacterDetail />}/>
+        <Route path="/people/:uid" element={<CharacterDetail />}/>
         <Route path="/planets/:uid" element={<PlanetDetail />}/>
         <Route path="/species/:uid" element={<SpecieDetail />}/>
         <Route path="/starships/:uid" element={<StarshipDetail />}/>

@@ -20,7 +20,7 @@ function Home() {
         <div className="col">
           <div className="card">
             <img src="../yoda.png" className="card-img-top imgMenu" alt="..." />
-            <Link className="btn" aria-current="page" to="/characters">
+            <Link className="btn" aria-current="page" to="/people">
               <small className="text-body-secondary linkFooter">CHARACTERS</small>
             </Link>
           </div>

@@ -113,5 +113,5 @@ body{
 }
 
 .isFavorite{
-  color: red;
+  background-color: rgb(249, 225, 6);
 }

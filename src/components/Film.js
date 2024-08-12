@@ -17,7 +17,7 @@ function Films() {
         {state.store.films.length > 0
           ? state.store.films.map((item, index) => {
               return (
-                <div className="col">
+                <div className="col" key={index}>
                   <div
                     className="card d-flex justify-content-between"
                     key={index}
@@ -45,8 +45,8 @@ function Films() {
                       <div>
                         <button
                           type="button"
-                          className={`btn btn-outline-warning ${state.store.favorites.some(is => is.uid == item.uid) ? 'isFavorite' : ''}`}
-                          onClick={() => state.actions.addFavorites(item.uid)}
+                          className={`btn btn-outline-warning ${state.store.favorites.some(is => is.uid == item.uid && is.type == 'films') ? 'isFavorite' : ''}`}
+                          onClick={() => state.actions.addFavorites(item.uid, 'films')}
                         >
                           <i className="fa-regular fa-heart"></i>
                         </button>

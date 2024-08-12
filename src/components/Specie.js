@@ -15,7 +15,7 @@ function Specie() {
         {state.store.species.length > 0
           ? state.store.species.map((item, index) => {
               return (
-                <div className="col">
+                <div className="col" key={index}>
                   <div
                     className="card d-flex justify-content-between"
                     key={index}
@@ -39,8 +39,12 @@ function Specie() {
                         </Link>
                       </div>
                       <div>
-                        <button type="button" class="btn btn-outline-warning">
-                          <i class="fa-regular fa-heart"></i>
+                        <button
+                          type="button"
+                          className={`btn btn-outline-warning ${state.store.favorites.some(is => is.uid == item.uid && is.type == 'species') ? 'isFavorite' : ''}`}
+                          onClick={() => state.actions.addFavorites(item.uid, 'species')}
+                        >
+                          <i className="fa-regular fa-heart"></i>
                         </button>
                       </div>
                     </div>

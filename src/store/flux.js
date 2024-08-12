@@ -123,10 +123,15 @@ const getState = ({ getActions, getStore, setStore }) => {
           }
         });
       },
-      addFavorites: (uid) => {
+      addFavorites: (uid, attribute) => {
         const store = getStore();
-        const selectedFilm = store.films.find(film => film.uid === uid);
-        setStore({ favorites: [...store.favorites, selectedFilm] });
+        const selected = store[attribute].find(item => item.uid === uid);
+        const newfavorites = {
+          uid: selected.uid,
+          title: selected?.properties?.title ? selected.properties.title : selected.name,
+          type: attribute,
+        }
+        setStore({ favorites: [...store.favorites, newfavorites] });
       },
     },
   };

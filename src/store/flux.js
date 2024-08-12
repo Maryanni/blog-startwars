@@ -105,12 +105,19 @@ const getState = ({ getActions, getStore, setStore }) => {
       },
       getFilmId: (uid) => {
         const { films } = getStore();
-        setStore({ description: "", producer: "", title: "", episode_id: "", director: "", opening_crawl: "" });
+        setStore({
+          description: "",
+          producer: "",
+          title: "",
+          episode_id: "",
+          director: "",
+          opening_crawl: "",
+        });
         films.forEach((item) => {
           if (item.uid === uid) {
-            console.log(item.uid)
-            console.log("holaa")
-            console.log(uid)
+            console.log(item.uid);
+            console.log("holaa");
+            console.log(uid);
             setStore({
               description: item.description,
               producer: item.properties.producer,
@@ -119,19 +126,32 @@ const getState = ({ getActions, getStore, setStore }) => {
               director: item.properties.director,
               opening_crawl: item.properties.opening_crawl,
             });
-       
           }
         });
       },
       addFavorites: (uid, attribute) => {
         const store = getStore();
-        const selected = store[attribute].find(item => item.uid === uid);
-        const newfavorites = {
-          uid: selected.uid,
-          title: selected?.properties?.title ? selected.properties.title : selected.name,
-          type: attribute,
+        const selected = store[attribute].find((item) => item.uid === uid);
+        const isListFavorite = store.favorites.some(
+          (is) => is.uid == uid && is.type == attribute
+        );
+        if (!isListFavorite) {
+          const newfavorites = {
+            uid: selected.uid,
+            title: selected?.properties?.title
+              ? selected.properties.title
+              : selected.name,
+            type: attribute,
+          };
+          setStore({ favorites: [...store.favorites, newfavorites] });
         }
-        setStore({ favorites: [...store.favorites, newfavorites] });
+      },
+      deleteFavorites: (uid, attribute) => {
+        const store = getStore();
+        const selected = store.favorites.filter(
+          item => !(item.uid === uid && item.type === attribute)
+        );
+        setStore({ favorites: selected });
       },
     },
   };

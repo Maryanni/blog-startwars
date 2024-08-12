@@ -30,7 +30,8 @@ function Navbar() {
             aria-expanded="false"
           >
             Favorites
-            <span className="badge text-bg-secondary iconNavbar">4</span>
+            
+            <span className="badge text-bg-secondary iconNavbar">{state.store.favorites ? state.store.favorites.length : 0}</span>
           </button>
           <ul className="dropdown-menu dropdown-menu-end">
             {state.store.favorites.map(

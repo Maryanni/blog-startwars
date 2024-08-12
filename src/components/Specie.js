@@ -41,8 +41,22 @@ function Specie() {
                       <div>
                         <button
                           type="button"
-                          className={`btn btn-outline-warning ${state.store.favorites.some(is => is.uid == item.uid && is.type == 'species') ? 'isFavorite' : ''}`}
-                          onClick={() => state.actions.addFavorites(item.uid, 'species')}
+                          className={`btn btn-outline-warning ${
+                            state.store.favorites.some(
+                              (is) => is.uid == item.uid && is.type == "species"
+                            )
+                              ? "isFavorite"
+                              : ""
+                          }`}
+                          onClick={() => {
+                            const isSelected = state.store.favorites.some(
+                              (is) => is.uid == item.uid && is.type == "species"
+                            );
+                            if (isSelected)
+                              state.actions.deleteFavorites(item.uid, "species");
+                            else
+                              state.actions.addFavorites(item.uid, "species");
+                          }}
                         >
                           <i className="fa-regular fa-heart"></i>
                         </button>

@@ -3,7 +3,6 @@ import { Context } from "../store/context";
 import { Link } from "react-router-dom";
 import "../App.css";
 
-
 function Character() {
   const state = useContext(Context);
 
@@ -40,8 +39,21 @@ function Character() {
                       <div>
                         <button
                           type="button"
-                          className={`btn btn-outline-warning ${state.store.favorites.some(is => is.uid == item.uid && is.type == 'people') ? 'isFavorite' : ''}`}
-                          onClick={() => state.actions.addFavorites(item.uid, 'people')}
+                          className={`btn btn-outline-warning ${
+                            state.store.favorites.some(
+                              (is) => is.uid == item.uid && is.type == "people"
+                            )
+                              ? "isFavorite"
+                              : ""
+                          }`}
+                          onClick={() => {
+                            const isSelected = state.store.favorites.some(
+                              (is) => is.uid == item.uid && is.type == "people"
+                            );
+                            if (isSelected)
+                              state.actions.deleteFavorites(item.uid, "people");
+                            else state.actions.addFavorites(item.uid, "people");
+                          }}
                         >
                           <i className="fa-regular fa-heart"></i>
                         </button>

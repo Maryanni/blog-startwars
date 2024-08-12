@@ -46,7 +46,13 @@ function Films() {
                         <button
                           type="button"
                           className={`btn btn-outline-warning ${state.store.favorites.some(is => is.uid == item.uid && is.type == 'films') ? 'isFavorite' : ''}`}
-                          onClick={() => state.actions.addFavorites(item.uid, 'films')}
+                          onClick={() => {
+                            const isSelected = state.store.favorites.some(is => is.uid == item.uid && is.type == 'films');
+                            if(isSelected)
+                              state.actions.deleteFavorites(item.uid, 'films')
+                            else
+                             state.actions.addFavorites(item.uid, 'films')
+                          }}
                         >
                           <i className="fa-regular fa-heart"></i>
                         </button>
